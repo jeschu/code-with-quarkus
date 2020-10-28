@@ -21,14 +21,8 @@ class PrimeNumberCheckerResource {
     @GET
     @Path("/{number}")
     @Produces(TEXT_PLAIN)
-    @Counted(
-            name = "performedChecks",
-            description = "How many primality checks have been performed."
-    )
-    @Timed(
-            name = "checksTimer", unit = MILLISECONDS,
-            description = "A measure of how long it takes to perform the primality test"
-    )
+    @Counted(name = "performedChecks", description = "How many primality checks have been performed.")
+    @Timed(name = "checksTimer", unit = MILLISECONDS, description = "A measure of how long it takes to perform the primality test")
     fun checkIfPrime(
 
             @PathParam("number")

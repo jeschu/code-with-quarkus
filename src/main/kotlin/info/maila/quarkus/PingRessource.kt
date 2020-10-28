@@ -22,6 +22,6 @@ class PingRessource {
 }
 
 data class Ping(
-        val message: String = "ping",
-        val timestamp: OffsetDateTime = OffsetDateTime.now()
+    val message: String = "ping",
+    val timestamp: OffsetDateTime = OffsetDateTime.now()
 )

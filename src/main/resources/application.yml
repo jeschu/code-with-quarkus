@@ -1,4 +1,5 @@
 quarkus:
+
   smallrye-metrics:
     path: '/metrics'
     extensions:
@@ -7,3 +8,32 @@ quarkus:
       compatibility: false
     jaxrs:
       enabled: false
+
+  health:
+    extensions:
+      enabled: true
+    openapi:
+      included: true
+
+  smallrye-health:
+    root-path: '/health'
+    liveness-path: '/live'
+    readiness-path: '/ready'
+    wellness-path: '/well'
+    group-path: '/group'
+    ui:
+      root-path: '/health-ui'
+      always-include: true
+      enable: true
+
+  smallrye-openapi:
+    path: '/openapi'
+
+  swagger-ui:
+    always-include: true
+    path: '/swagger-ui'
+
+  log:
+    level: INFO
+    console:
+      color: true
