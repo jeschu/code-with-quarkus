@@ -1,0 +1,9 @@
+quarkus:
+  smallrye-metrics:
+    path: '/metrics'
+    extensions:
+      enabled: true
+    micrometer:
+      compatibility: false
+    jaxrs:
+      enabled: false
