@@ -1,6 +1,9 @@
-# Gradle
-.gradle/
-build/
+#Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties
 # Eclipse
 .project
 .classpath
@@ -30,4 +33,3 @@ nb-configuration.xml
 # patch
 *.orig
 *.rej
-
