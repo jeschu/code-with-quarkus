@@ -1,5 +1,6 @@
 package info.maila.quarkus
 
+import mu.KotlinLogging
 import org.eclipse.microprofile.metrics.MetricUnits.MILLISECONDS
 import org.eclipse.microprofile.metrics.MetricUnits.NONE
 import org.eclipse.microprofile.metrics.annotation.Counted
@@ -29,6 +30,12 @@ class PrimeNumberCheckerResource {
             number: Long
 
     ): String {
+        val response = doCheckIfPrime(number)
+        logger.trace { response }
+        return response
+    }
+
+    private fun doCheckIfPrime(number: Long): String {
         when {
             number < 1L -> return "Only natural numbers can be prime number."
             number == 1L -> return "1 is not prime,"
@@ -50,5 +57,9 @@ class PrimeNumberCheckerResource {
 
     @Gauge(name = "highestPrimeNumberSoFar", unit = NONE)
     fun highestPrimeNumberSoFar() = highestPrimeNumberSoFar
+
+    companion object {
+        private val logger = KotlinLogging.logger {}
+    }
 
 }

@@ -35,7 +35,9 @@ class WellnessHealthCheck : HealthCheck {
 
     }
 
+    companion object {
+        private fun Long.toMB() = "${(this / 10485.76).toLong().toDouble() / 100}"
+    }
+
 }
 
-private const val mb: Long = 1_024 * 1_024
-private fun Long.toMB() = "${(this / mb.toDouble() * 100).toLong().toDouble() / 100}"

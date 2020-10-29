@@ -11,20 +11,17 @@ class Application : QuarkusApplication {
 
     override fun run(vararg args: String?): Int {
 
-        logger.info { "waitForExit() ..." }
+        logger.trace { "waitForExit() ..." }
         waitForExit()
-        logger.info { "waitForExit() ... done" }
+        logger.trace { "waitForExit() ... done" }
         return 0
 
     }
 
+    companion object {
+        private val logger = KotlinLogging.logger {}
+    }
 }
 
-val logger = KotlinLogging.logger {}
 
-fun main(args: Array<String>) {
-
-    logger.info { "startup 'code-with-quarkus' ..." }
-    run(Application::class.java, *args)
-
-}
+fun main(args: Array<String>) = run(Application::class.java, *args)
