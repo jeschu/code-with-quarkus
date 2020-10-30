@@ -5,11 +5,11 @@ quarkus:
     type: fast-jar
 
   datasource:
-    db-kind: 'h2'
+    db-kind: 'postgresql'
     jdbc:
-      url: 'jdbc:h2:tcp://localhost/mem:world;DB_CLOSE_DELAY=-1'
-    username: 'sa'
-    password: ''
+      url: 'jdbc:postgresql://localhost:54320/world'
+    username: 'quarkus'
+    password: 'world'
     health:
       enabled: true
     metrics:
@@ -20,10 +20,9 @@ quarkus:
       generation: drop-and-create
 
   flyway:
-    #migrate-at-start: true
-    migrate-at-start: false
+    migrate-at-start: true
     locations: 'db/migration'
-    connect-retries: 1
+    connect-retries: 10
     table: 'flyway_history'
 
 
