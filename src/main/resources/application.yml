@@ -4,6 +4,29 @@ quarkus:
     # type: uber-jar
     type: fast-jar
 
+  datasource:
+    db-kind: 'h2'
+    jdbc:
+      url: 'jdbc:h2:tcp://localhost/mem:world;DB_CLOSE_DELAY=-1'
+    username: 'sa'
+    password: ''
+    health:
+      enabled: true
+    metrics:
+      enabled: true
+
+  hibernate-orm:
+    database:
+      generation: drop-and-create
+
+  flyway:
+    #migrate-at-start: true
+    migrate-at-start: false
+    locations: 'db/migration'
+    connect-retries: 1
+    table: 'flyway_history'
+
+
   smallrye-metrics:
     path: '/metrics'
     extensions:
@@ -47,7 +70,7 @@ quarkus:
     path: '/swagger-ui'
 
   log:
-    level: INFO
+    level: 'INFO'
     console:
       format: "%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p traceId=%X{traceId}, parentId=%X{parentId}, spanId=%X{spanId}, sampled=%X{sampled} [%c{1.}] (%t) %s%e%n"
       color: true

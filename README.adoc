@@ -40,8 +40,6 @@ Or, if you don't have GraalVM installed, you can run the native executable build
 
 You can then execute your native executable with: `./target/code-with-quarkus-1.0.0-SNAPSHOT-runner`
 
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/gradle-tooling.
-
 == Health Checks
 
 - http://localhost:8080/health
@@ -54,3 +52,20 @@ If you want to learn more about building native executables, please consult http
 
 - http://localhost:8080/metrics/application
 - http://localhost:8080/metrics
+
+== Health Checks
+
+- http://localhost:8080/health
+- http://localhost:8080/health/live
+- http://localhost:8080/health/ready
+- http://localhost:8080/health/well
+- http://localhost:8080/health-ui
+
+== H2 In-Memory Database
+
+The application uses an in-memory H2 database. +
+When launched in _dev_ mode a TCP listener and the H2 web server are started with the application:
+
+* TCP server running at tcp://localhost:9092 (only local connections) +
+  JDBC connection url: `jdbc:h2:tcp://localhost/mem:world`
+* Web Console server running at http://localhost:8082 (only local connections)
