@@ -19,7 +19,7 @@
     <quarkus-plugin.version>${quarkus.platform.version}</quarkus-plugin.version>
     <surefire-plugin.version>2.22.1</surefire-plugin.version>
     <kotlin-logging.version>1.7.8</kotlin-logging.version>
-    <kotlinx-coroutines-core.version>1.4.0</kotlinx-coroutines-core.version>
+    <kotlinx-coroutines-core.version>1.6.4</kotlinx-coroutines-core.version>
   </properties>
   <dependencyManagement>
     <dependencies>
